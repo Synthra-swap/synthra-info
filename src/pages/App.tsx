@@ -16,6 +16,8 @@ import { ExternalLink, TYPE } from 'theme'
 import { useActiveNetworkVersion, useSubgraphStatus } from 'state/application/hooks'
 import { DarkGreyCard } from 'components/Card'
 import { SUPPORTED_NETWORK_VERSIONS, OptimismNetworkInfo, UomiNetworkInfo } from 'constants/networks'
+import { TestnetBanner } from '../components/TestnetBanner'
+import { TestnetBannerProvider, useTestnetBanner } from '../components/TestnetBanner/context'
 // import { Link } from 'rebass'
 
 const AppWrapper = styled.div`
@@ -34,12 +36,17 @@ const HeaderWrapper = styled.div`
   z-index: 2;
 `
 
-const BodyWrapper = styled.div<{ $warningActive?: boolean }>`
+const BodyWrapper = styled.div<{ $warningActive?: boolean; $testnetBannerActive?: boolean }>`
   display: flex;
   flex-direction: column;
   width: 100%;
   padding-top: 40px;
-  margin-top: ${({ $warningActive }) => ($warningActive ? '140px' : '100px')};
+  margin-top: ${({ $warningActive, $testnetBannerActive }) => {
+    if ($warningActive && $testnetBannerActive) return '190px' // Both banners
+    if ($warningActive) return '140px' // Only warning banner
+    if ($testnetBannerActive) return '150px' // Only testnet banner
+    return '100px' // No banners
+  }};
   align-items: center;
   flex: 1;
   overflow-y: auto;
@@ -99,12 +106,15 @@ const WarningBanner = styled.div`
 
 const BLOCK_DIFFERENCE_THRESHOLD = 30
 
-export default function App() {
+function AppContent() {
   // pretend load buffer
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     setTimeout(() => setLoading(false), 1300)
   }, [])
+
+  // testnet banner visibility
+  const { isBannerVisible } = useTestnetBanner()
 
   // update network based on route
   // TEMP - find better way to do this
@@ -135,8 +145,8 @@ export default function App() {
       <DarkModeQueryParamReader />
       {loading ? (
         <LocalLoader fill={true} />
-      ) : (
-        <AppWrapper>
+      ) : (        <AppWrapper>
+          <TestnetBanner />
           <URLWarning />
           <HeaderWrapper>
             {showNotSyncedWarning && (
@@ -159,10 +169,9 @@ export default function App() {
               <TopBar />
             </Hide1080>
             <Header />
-          </HeaderWrapper>
-          {subgraphStatus.available === false ? (
+          </HeaderWrapper>          {subgraphStatus.available === false ? (
             <AppWrapper>
-              <BodyWrapper>
+              <BodyWrapper $testnetBannerActive={isBannerVisible}>
                 <DarkGreyCard style={{ maxWidth: '340px' }}>
                   <TYPE.label>
                     The Graph hosted network which provides data for this site is temporarily experiencing issues. Check
@@ -175,7 +184,7 @@ export default function App() {
               </BodyWrapper>
             </AppWrapper>
           ) : (
-            <BodyWrapper $warningActive={showNotSyncedWarning}>
+            <BodyWrapper $warningActive={showNotSyncedWarning} $testnetBannerActive={isBannerVisible}>
               <Popups />
               <Routes>
                 <Route path="/:networkID?/pools/:address" element={<PoolPage />} />
@@ -186,9 +195,16 @@ export default function App() {
               </Routes>
               <Marginer />
             </BodyWrapper>
-          )}
-        </AppWrapper>
+          )}        </AppWrapper>
       )}
     </Suspense>
+  )
+}
+
+export default function App() {
+  return (
+    <TestnetBannerProvider>
+      <AppContent />
+    </TestnetBannerProvider>
   )
 }
