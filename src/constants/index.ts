@@ -42,7 +42,8 @@ export const TOKEN_ALLOW_LIST: { [key: string]: string[] } = {
   [SupportedNetwork.BASE]: [],
   [SupportedNetwork.UOMI]: [
     '0x5fca78e132df589c1c799f906dc867124a2567b2',
-    '0xaa9c4829415bce70c434b7349b628017c59ec2b1'
+    '0xaa9c4829415bce70c434b7349b628017c59ec2b1',
+    '0x2922B2Ca5EB6b02fc5E1EBE57Fc1972eBB99F7e0',
   ],
 }
 
@@ -77,7 +78,8 @@ export const POOL_ALLOW_LIST: { [key: string]: string[] } = {
   [SupportedNetwork.BASE]: [],
   [SupportedNetwork.UOMI]: [
     '0x66d12bddc8f958bc983d955825c182283e8cd475',
-    '0xddb91907928889177f40a73b0516d18aea09c2e1'
+    '0xddb91907928889177f40a73b0516d18aea09c2e1',
+    '0x26d376829864543004A2f55e7d066Fa6e113b254'
   ],
 }
 
