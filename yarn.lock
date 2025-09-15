@@ -2823,10 +2823,10 @@
     "@svgr/plugin-svgo" "^5.5.0"
     loader-utils "^2.0.0"
 
-"@synthra-swap/sdk-core@^4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@synthra-swap/sdk-core/-/sdk-core-4.2.1.tgz#1f9f43fa1dba3c89cde44dcfc415b8dd2078e682"
-  integrity sha512-xsAbxudksiB1KpWi10REO5pqSOswlvIoiXW1X1pjvbE5L61biHJUg2CP7ceEPvLeFzBPw3sTtrJZgTjB4zgJdQ==
+"@synthra-swap/sdk-core@4.2.7":
+  version "4.2.7"
+  resolved "https://registry.yarnpkg.com/@synthra-swap/sdk-core/-/sdk-core-4.2.7.tgz#e6524bee0cfd253319192b1e2f6471ce1e384f79"
+  integrity sha512-7n95x0ndotRtMr/Rn/gNpaKPKckFgD/mCzCGmvHY+ZoxqJhuahJRyNzj2N/F4mQhyP+X/OJ1W1RM7s6BAJQaXQ==
   dependencies:
     "@ethersproject/address" "^5.0.2"
     big.js "^5.2.2"

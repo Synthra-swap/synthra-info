@@ -41,9 +41,9 @@ export const TOKEN_ALLOW_LIST: { [key: string]: string[] } = {
   [SupportedNetwork.AVALANCHE]: [],
   [SupportedNetwork.BASE]: [],
   [SupportedNetwork.UOMI]: [
-    '0x5fca78e132df589c1c799f906dc867124a2567b2',
-    '0xaa9c4829415bce70c434b7349b628017c59ec2b1',
-    '0x2922b2ca5eb6b02fc5e1ebe57fc1972ebb99f7e0',
+    '0x911b4000d3422f482f4062a913885f7b035382df',
+    '0x04b03e3859a25040e373cc9e8806d79596d70686',
+    '0x5b727bf35ddba2a8da966e29f7c769823e4faf41',
   ],
 }
 
@@ -77,9 +77,8 @@ export const POOL_ALLOW_LIST: { [key: string]: string[] } = {
   [SupportedNetwork.AVALANCHE]: [],
   [SupportedNetwork.BASE]: [],
   [SupportedNetwork.UOMI]: [
-    '0x66d12bddc8f958bc983d955825c182283e8cd475',
-    '0xddb91907928889177f40a73b0516d18aea09c2e1',
-    '0x26d376829864543004a2f55e7d066fa6e113b254',
+    '0xd0380bc7ba3862a1e975bcab428b74f1cf741c85',
+    '0x631e7fbbe567d79473208aab8932221f22afad1a',
   ],
 }
 
@@ -92,7 +91,7 @@ export const START_BLOCKS: { [key: string]: number } = {
   [SupportedNetwork.BNB]: 26324014,
   [SupportedNetwork.AVALANCHE]: 31422450,
   [SupportedNetwork.BASE]: 1371680,
-  [SupportedNetwork.UOMI]: 1880000,
+  [SupportedNetwork.UOMI]: 201556,
 }
 
 export interface WalletInfo {

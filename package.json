@@ -93,7 +93,7 @@
   },
   "scripts": {
     "start": "DISABLE_ESLINT_PLUGIN=true TSC_COMPILE_ON_ERROR=true CI=false react-scripts start",
-   "build": "NODE_OPTIONS=--max_old_space_size=8192 DISABLE_ESLINT_PLUGIN=true TSC_COMPILE_ON_ERROR=true CI=false react-scripts build",
+    "build": "NODE_OPTIONS=--max_old_space_size=8192 DISABLE_ESLINT_PLUGIN=true TSC_COMPILE_ON_ERROR=true CI=false react-scripts build",
     "eject": "react-scripts eject",
     "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'",
     "storybook": "start-storybook -p 6006",
@@ -126,7 +126,7 @@
     "@apollo/client": "^3.8.6",
     "@data-ui/histogram": "^0.0.84",
     "@ethersproject/experimental": "^5.7.0",
-    "@synthra-swap/sdk-core": "^4.2.1",
+    "@synthra-swap/sdk-core": "4.2.7",
     "@types/ms": "^0.7.33",
     "@types/numeral": "^2.0.1",
     "@types/ua-parser-js": "^0.7.38",
